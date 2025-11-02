@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Resume Screening</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AI Resume Screening</h1>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>1) Job Description</h2>
+        <form id="job-form">
+          <textarea id="job-desc" name="description" placeholder="Paste the job description here..." required></textarea>
+          <button type="submit">Set Job</button>
+          <div id="job-skills" class="muted"></div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>2) Upload Resumes</h2>
+        <form id="upload-form">
+          <div class="row">
+            <input type="text" id="name" name="name" placeholder="Candidate name (optional)" />
+            <input type="email" id="email" name="email" placeholder="Email (optional)" />
+          </div>
+          <input id="files" name="files" type="file" multiple accept=".pdf,.docx,.txt" required />
+          <button type="submit">Upload</button>
+          <div id="upload-status" class="muted"></div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>3) Screen Candidates</h2>
+        <button id="screen-btn">Run Screening</button>
+        <a id="export-link" href="/api/export" target="_blank" class="link">Export CSV</a>
+        <div id="results"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="muted">Heuristic demo. Extend skills/weights in backend.</span>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
